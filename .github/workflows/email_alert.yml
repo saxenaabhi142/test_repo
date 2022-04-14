@@ -47,14 +47,3 @@ jobs:
            #attachments: attachments.zip,git.diff,./dist/static/*.js
            #priority: low
            
-      - name: 'Comment on PR'
-        uses: actions/github-script@v3
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            var fs = require('fs');
-            await github.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: 'Everything is OK. Thank you for the PR!'
-            });     
