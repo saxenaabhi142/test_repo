@@ -29,8 +29,8 @@ jobs:
            to: ${{secrets.MAIL_TO}}
            from: ${{secrets.MAIL_FROM}}
            secure: true
-           body: 'A PR action has been taken on repo ${{ github.event.repository.name }}. The PR is opened/reopened/closed for repository ${{github.repository}}. PR number is ${{ github.event.pull_request.number }}.'
-           html_body: <h3>A PR action has been taken on repo ${{ github.event.repository.name }}</h3><br/><p>The PR is opened/reopened/closed for repository ${{github.repository}}. PR number is ${{ github.event.pull_request.number }}.</p>
+           body: ${{github.context.payload}}
+           html_body: ${{github.context.payload}}
            ignore_cert: true
            convert_markdown: true
            
